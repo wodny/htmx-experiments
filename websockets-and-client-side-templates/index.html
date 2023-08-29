@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>htmx experiment: WebSockets and client-side templates</title>
+        <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.5/dist/ext/ws.js"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.5/dist/ext/client-side-templates.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
+        <script id="notification-template" type="text/x-handlebars-template">
+            <p id="notification">Notification serial: {{serial}}</p>
+        </script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <h1>htmx experiment: WebSockets and client-side templates</h1>
+        <h2>Notification</h2>
+        <div hx-ext="ws,transform-response,client-side-templates" ws-connect="/ws" handlebars-template="notification-template"></div>
+        <p id="notification"></p>
+    </body>
+</html>
